@@ -21,6 +21,9 @@ class MyHomePage extends StatelessWidget {
     Transaction(id: 3, title: 'IPhoneX', ammount: 90000, date: DateTime.now()),
   ];
 
+  String titleInput;
+  String ammountInput;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,15 +56,28 @@ class MyHomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     TextField(
-                      decoration: InputDecoration(labelText: 'Title'),
+                      decoration: InputDecoration(
+                        labelText: 'Title',
+                      ),
+                      onChanged: (val) {
+                        titleInput = val;
+                      },
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Ammount',),
+                      decoration: InputDecoration(
+                        labelText: 'Ammount',
+                      ),
+                      onChanged: (val) {
+                        ammountInput = val;
+                      },
                     ),
                     FlatButton(
                       color: Colors.blue,
                       child: Text('Add Transaction'),
-                      onPressed: () {},
+                      onPressed: () {
+                        print(titleInput);
+                        print(ammountInput);
+                      },
                       textColor: Colors.white,
                     ),
                   ],

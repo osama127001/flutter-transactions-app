@@ -7,6 +7,7 @@ class Transaction {
   @required final double ammount;
   @required final DateTime date;
 
+
   Transaction({ this.id, this.title, this.ammount, this.date });
 
 }
