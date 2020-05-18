@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transactions/transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,14 +18,14 @@ class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction(id: 1, title: 'Shoes', ammount: 5000, date: DateTime.now()),
     Transaction(id: 2, title: 'Suit', ammount: 9000, date: DateTime.now()),
-    Transaction(id: 3, title: 'IPhoneX', ammount: 900000, date: DateTime.now()),
+    Transaction(id: 3, title: 'IPhoneX', ammount: 90000, date: DateTime.now()),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Futter App'),
+        title: Text('Transactions App'),
       ),
       body: Container(
         child: Column(
@@ -34,7 +35,10 @@ class MyHomePage extends StatelessWidget {
             Card(
               elevation: 6,
               child: Container(
-                child: Text('Data'),
+                child: Text(
+                  'Data',
+                  style: TextStyle(fontSize: 24),
+                ),
               ),
               color: Colors.red,
             ),
@@ -47,14 +51,18 @@ class MyHomePage extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.symmetric(
-                                vertical: 40, horizontal: 40),
+                              vertical: 40,
+                              horizontal: 40,
+                            ),
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.blue, width: 3),
                             ),
                             padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 10),
+                              vertical: 10,
+                              horizontal: 10,
+                            ),
                             child: Text(
-                              tx.ammount.toString(),
+                              '\$${tx.ammount}',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.red,
@@ -63,9 +71,17 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(tx.title),
-                              Text(tx.date.toString()),
+                              Text(
+                                tx.title,
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                DateFormat.yMMMd().format(tx.date),
+                                style: TextStyle(color: Colors.green),
+                              ),
                             ],
                           ),
                         ],
