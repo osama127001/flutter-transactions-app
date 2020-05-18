@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transactions/transaction.dart';
-import 'package:intl/intl.dart';
+import 'package:transactions/widgets/transaction_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,11 +14,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [
-    Transaction(id: 1, title: 'Shoes', ammount: 5000, date: DateTime.now()),
-    Transaction(id: 2, title: 'Suit', ammount: 9000, date: DateTime.now()),
-    Transaction(id: 3, title: 'IPhoneX', ammount: 90000, date: DateTime.now()),
-  ];
 
   final titleController = TextEditingController();
   final ammountController = TextEditingController();
@@ -88,56 +82,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: <Widget>[
-                Column(
-                  children: transactions.map((tx) {
-                    return Card(
-                      elevation: 10,
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: 20,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.blue, width: 3),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: 10,
-                            ),
-                            child: Text(
-                              '\$${tx.ammount}',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                tx.title,
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                DateFormat.yMMMd().format(tx.date),
-                                style: TextStyle(color: Colors.green),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  }).toList(),
-                ),
-              ],
-            ),
+            TransactionList(), // Transaction List Widget in location widgets/transaction_list.dart
           ],
         ),
       ),
