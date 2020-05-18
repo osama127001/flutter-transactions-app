@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transactions/widgets/new_transaction.dart';
 import 'package:transactions/widgets/transaction_list.dart';
 
 void main() => runApp(MyApp());
@@ -14,9 +15,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
-  final titleController = TextEditingController();
-  final ammountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,49 +37,7 @@ class MyHomePage extends StatelessWidget {
               ),
               color: Colors.red,
             ),
-            Card(
-              elevation: 10,
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 10,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Title',
-                      ),
-                      // onChanged: (val) {
-                      //   titleInput = val;
-                      // },
-                      controller: titleController, // these controllers are initialized above
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Ammount',
-                      ),
-                      // onChanged: (val) {
-                      //   ammountInput = val;
-                      // },
-                      controller: ammountController, // these controllers are initialized above
-                    ),
-                    FlatButton(
-                      color: Colors.blue,
-                      child: Text('Add Transaction'),
-                      onPressed: () {
-                        // print(titleInput);
-                        // print(ammountInput);
-                        print(titleController.text);
-                        print(ammountController.text);
-                      },
-                      textColor: Colors.white,
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            NewTransaction(),
             TransactionList(), // Transaction List Widget in location widgets/transaction_list.dart
           ],
         ),
