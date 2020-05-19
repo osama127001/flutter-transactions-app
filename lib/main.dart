@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transactions/widgets/new_transaction.dart';
-import 'package:transactions/widgets/transaction_list.dart';
+import 'package:transactions/widgets/user_transactions.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,8 +36,7 @@ class MyHomePage extends StatelessWidget {
               ),
               color: Colors.red,
             ),
-            NewTransaction(),
-            TransactionList(), // Transaction List Widget in location widgets/transaction_list.dart
+            UserTransactions(), // Transaction List Widget in location widgets/transaction_list.dart
           ],
         ),
       ),

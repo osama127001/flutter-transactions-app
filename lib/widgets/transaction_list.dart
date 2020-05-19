@@ -3,26 +3,20 @@ import 'package:intl/intl.dart';
 import 'package:transactions/models/transaction.dart';
 
 
-class TransactionList extends StatefulWidget {
-  @override
-  _TransactionListState createState() => _TransactionListState();
-}
+class TransactionList extends StatelessWidget {
+    
+  // initializing transaction lists to get from user transsctions
+  final List<Transaction> transactions;
 
-class _TransactionListState extends State<TransactionList> {
+  // constructor that recieves transactions lists
+  TransactionList(this.transactions);
+
   @override
   Widget build(BuildContext context) {
-
-  final List<Transaction> _userTransactions = [
-    Transaction(id: 1, title: 'Shoes', ammount: 5000, date: DateTime.now()),
-    Transaction(id: 2, title: 'Suit', ammount: 9000, date: DateTime.now()),
-    Transaction(id: 3, title: 'IPhoneX', ammount: 90000, date: DateTime.now()),
-  ];
-
-
     return Column(
       children: <Widget>[
         Column(
-          children: _userTransactions.map((tx) {
+          children: transactions.map((tx) {
             return Card(
               elevation: 10,
               child: Row(
