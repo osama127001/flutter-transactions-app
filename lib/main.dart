@@ -22,22 +22,24 @@ class MyHomePage extends StatelessWidget {
         title: Text('Transactions App'),
       ),
       body: Container(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Card(
-              elevation: 6,
-              child: Container(
-                child: Text(
-                  'Data',
-                  style: TextStyle(fontSize: 24),
+        child: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              Card(
+                elevation: 6,
+                child: Container(
+                  child: Text(
+                    'Static Data',
+                    style: TextStyle(fontSize: 24),
+                  ),
                 ),
+                color: Colors.red,
               ),
-              color: Colors.red,
-            ),
-            UserTransactions(), // Transaction List Widget in location widgets/transaction_list.dart
-          ],
+              UserTransactions(), // Transaction List Widget in location widgets/transaction_list.dart
+            ],
+          ),
         ),
       ),
     );
