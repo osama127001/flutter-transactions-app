@@ -36,6 +36,7 @@ class NewTransaction extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Ammount',
               ),
+              keyboardType: TextInputType.number,
               // onChanged: (val) {
               //   ammountInput = val;
               // },
