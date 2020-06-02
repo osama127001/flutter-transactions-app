@@ -20,6 +20,9 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Transactions App'),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.add), onPressed: () {},),
+        ],
       ),
       body: Container(
         child: SingleChildScrollView(
@@ -42,6 +45,8 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(child: Icon(Icons.add), onPressed: (){},),
     );
   }
 }
