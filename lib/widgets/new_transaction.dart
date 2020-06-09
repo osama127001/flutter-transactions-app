@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget { // widget class
 
   // initializing a funcion.
   final Function addTx;
@@ -8,7 +8,13 @@ class NewTransaction extends StatelessWidget {
   // constructor recieving function that adds transaction in transaction array.
   NewTransaction(this.addTx);
 
+  @override
+  _NewTransactionState createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> { // state class
   final titleController = TextEditingController();
+
   final ammountController = TextEditingController();
 
   @override
@@ -46,7 +52,7 @@ class NewTransaction extends StatelessWidget {
               color: Colors.blue,
               child: Text('Add Transaction'),
               onPressed: () {
-                addTx(titleController.text, double.parse(ammountController.text));
+                widget.addTx(titleController.text, double.parse(ammountController.text));
               },
               textColor: Colors.white,
             ),
