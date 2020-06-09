@@ -41,7 +41,7 @@ class TransactionList extends StatelessWidget {
                           '\$${tx.ammount}',
                           style: TextStyle(
                             fontSize: 16,
-                            color: Colors.red,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
