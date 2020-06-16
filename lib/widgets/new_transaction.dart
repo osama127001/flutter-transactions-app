@@ -16,8 +16,16 @@ class NewTransaction extends StatefulWidget {
 class _NewTransactionState extends State<NewTransaction> {
   // state class
   final titleController = TextEditingController();
-
   final ammountController = TextEditingController();
+
+  void _presentDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2019),
+      lastDate: DateTime.now(),
+    );
+  }
 
   bool _isVisible = true;
 
@@ -62,7 +70,16 @@ class _NewTransactionState extends State<NewTransaction> {
                 controller:
                     ammountController, // these controllers are initialized above
               ),
-              FlatButton(
+              Row(
+                children: <Widget>[
+                  Text('No date chosen!'),
+                  FlatButton(
+                    child: Text('Choose Date'),
+                    onPressed: _presentDatePicker,
+                  ),
+                ],
+              ),
+              RaisedButton(
                 color: Colors.blue,
                 child: Text('Add Transaction'),
                 onPressed: () {
