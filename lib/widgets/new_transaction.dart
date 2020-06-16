@@ -95,6 +95,7 @@ class _NewTransactionState extends State<NewTransaction> {
                   widget.addTx(
                     titleController.text,
                     double.parse(ammountController.text),
+                    _selectedDate
                   );
                   toggleVisibility();
                 },

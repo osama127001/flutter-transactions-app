@@ -33,7 +33,7 @@ class _UserTransactionsState extends State<UserTransactions> {
       child: Column(
         children: <Widget>[
           NewTransaction(_addNewTransaction),
-          TransactionList(_userTransactions),
+          // TransactionList(_userTransactions),
         ],
       ),
     );

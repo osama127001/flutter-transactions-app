@@ -6,8 +6,12 @@ class TransactionList extends StatelessWidget {
   // initializing transaction lists to get from user transsctions
   final List<Transaction> transactions;
 
+  // Funtion to delete transaction
+  final Function deleteTx;
+
   // constructor that recieves transactions lists
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.deleteTx);
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +70,10 @@ class TransactionList extends StatelessWidget {
                                 Text(
                                   DateFormat.yMMMd().format(tx.date),
                                   style: TextStyle(color: Colors.green),
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.delete),
+                                  onPressed: () => deleteTx(tx.id),
                                 ),
                               ],
                             ),
