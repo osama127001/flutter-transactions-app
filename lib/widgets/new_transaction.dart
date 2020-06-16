@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   // widget class
@@ -17,6 +18,7 @@ class _NewTransactionState extends State<NewTransaction> {
   // state class
   final titleController = TextEditingController();
   final ammountController = TextEditingController();
+  DateTime _selectedDate;
 
   void _presentDatePicker() {
     showDatePicker(
@@ -24,7 +26,14 @@ class _NewTransactionState extends State<NewTransaction> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2019),
       lastDate: DateTime.now(),
-    );
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      }
+      setState(() {
+        _selectedDate = pickedDate;
+      });
+    });
   }
 
   bool _isVisible = true;
@@ -72,7 +81,7 @@ class _NewTransactionState extends State<NewTransaction> {
               ),
               Row(
                 children: <Widget>[
-                  Text('No date chosen!'),
+                  Text(_selectedDate == null ? 'No Date Selected' : DateFormat.yMd().format(_selectedDate)),
                   FlatButton(
                     child: Text('Choose Date'),
                     onPressed: _presentDatePicker,
