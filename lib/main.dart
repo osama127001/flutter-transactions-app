@@ -12,8 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Financial Diary',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-        accentColor: Colors.black,
+        primarySwatch: Colors.lightBlue,
       ),
       home: MyHomePage(),
     );
@@ -85,10 +84,19 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Container(
                 width: MediaQuery.of(context).size.width,
-                child: Card(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                    child: Chart(_getRecentTransactions),
+                child: Container(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      side: BorderSide(
+                        color: Theme.of(context).primaryColor,
+                        width: 5,
+                      )
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                      child: Chart(_getRecentTransactions),
+                    ),
                   ),
                 ),
               ),
