@@ -36,14 +36,17 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: getGroupedTransactionValues.map((data) {
-        return Container(
-          padding: EdgeInsets.all(10),
-          child: ChartBar(
-            data['day'],
-            data['ammount'],
-            getTotalSpending == 0 ? 0.0 : (data['ammount'] as double) / getTotalSpending,
-          ),
-        );
+        return Flexible(
+            flex: 1,
+            fit: FlexFit.tight,
+            child: Container(
+              child: ChartBar(
+                data['day'],
+                data['ammount'],
+                getTotalSpending == 0 ? 0.0 : (data['ammount'] as double) / getTotalSpending,
+              ),
+            ),
+          );
       }).toList()
     );
   }

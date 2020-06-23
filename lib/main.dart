@@ -32,7 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Transaction(id: 3, title: 'IPhoneX', ammount: 900, date: DateTime.now()),
   ];
 
-  void _addNewTransaction(String txTitle, double txAmmount, DateTime chosenDate) {
+  void _addNewTransaction(
+      String txTitle, double txAmmount, DateTime chosenDate) {
     final newTx = Transaction(
       title: txTitle,
       ammount: txAmmount,
@@ -45,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _deleteTransaction(int id) {
-    setState(() { 
+    setState(() {
       _userTransactions.removeWhere((item) => item.id == id);
     });
   }
@@ -83,10 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
             // crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Container(
-                width: 350,
+                width: MediaQuery.of(context).size.width,
                 child: Card(
-                  elevation: 10,
-                  child: Chart(_getRecentTransactions),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                    child: Chart(_getRecentTransactions),
+                  ),
                 ),
               ),
               //UserTransactions(), // Transaction List Widget in location widgets/transaction_list.dart
