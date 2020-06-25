@@ -50,12 +50,24 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _startAddnewTransaction(BuildContext ctx) {
+  void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
         context: ctx,
         builder: (_) {
           return NewTransaction(_addNewTransaction);
         });
+  }
+
+  void _startAddNewTransactionWithFloatingDialogueBox(BuildContext ctx) {
+    showDialog(
+      context: ctx,
+      builder: (_) {
+          return AlertDialog(
+            title: Text("Add Transaction"),
+            content: NewTransaction(_addNewTransaction),
+          );
+      }
+    );
   }
 
   List<Transaction> get _getRecentTransactions {
@@ -72,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () => _startAddnewTransaction(context),
+            onPressed: () => _startAddNewTransactionWithFloatingDialogueBox(context),
           ),
         ],
       ),
@@ -109,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => _startAddnewTransaction(context),
+        onPressed: () => _startAddNewTransactionWithFloatingDialogueBox(context),
       ),
     );
   }

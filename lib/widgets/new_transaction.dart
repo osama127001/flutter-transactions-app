@@ -48,8 +48,8 @@ class _NewTransactionState extends State<NewTransaction> {
   Widget build(BuildContext context) {
     return Visibility(
       visible: _isVisible,
-      child: Card(
-        elevation: 10,
+      child: Container(
+        height: 250,
         child: Container(
           padding: EdgeInsets.symmetric(
             vertical: 10,
@@ -92,6 +92,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 color: Colors.blue,
                 child: Text('Add Transaction'),
                 onPressed: () {
+                  Navigator.of(context).pop();
                   widget.addTx(
                     titleController.text,
                     double.parse(ammountController.text),
