@@ -85,16 +85,16 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: Container(
+                  padding: EdgeInsets.all(20),
+                  color: Theme.of(context).primaryColor,
                   child: Card(
+                    elevation: 100,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
-                      side: BorderSide(
-                        color: Theme.of(context).primaryColor,
-                        width: 5,
-                      )
                     ),
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                       child: Chart(_getRecentTransactions),
                     ),
                   ),
