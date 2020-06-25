@@ -12,7 +12,6 @@ class TransactionList extends StatelessWidget {
   // constructor that recieves transactions lists
   TransactionList(this.transactions, this.deleteTx);
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,53 +31,11 @@ class TransactionList extends StatelessWidget {
                 children: <Widget>[
                   Column(
                     children: transactions.map((tx) {
-                      return Card(
-                        elevation: 10,
-                        child: Row(
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 20,
-                              ),
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.blue, width: 3),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 10,
-                              ),
-                              child: Text(
-                                '\$${tx.ammount}',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  tx.title,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  DateFormat.yMMMd().format(tx.date),
-                                  style: TextStyle(color: Colors.green),
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.delete),
-                                  onPressed: () => deleteTx(tx.id),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                      return ListTile(
+                        title: Text('${tx.title}'),
+                        subtitle: Text(DateFormat.yMMMd().format(tx.date)),
+                        trailing: Text('\$${tx.ammount}'), 
+                        onTap: (){},
                       );
                     }).toList(),
                   ),
